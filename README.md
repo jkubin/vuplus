@@ -23,7 +23,7 @@ The script `vuplus_userbouquets_editable` decrypts them (thanks to ***YOUR*** tv
 1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
 ...
 ```
-... edit whatever you want and finaly run `vuplus_userbouquets_restore` back to cryptic format
+... edit whatever you want and finaly run `vuplus_userbouquets_restore` back to cryptic format and upload them to your box ...
 ## Steps to use vuplus scripts
 1. copy all bouquets to working location
 ```
@@ -34,7 +34,7 @@ $ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
 root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 ```
 
-2. download JSON data to tv.txt and radio.txt (all available services from `/etc/enigma2/lamedb`)
+2. download JSON data from Vu+ and create tv.txt and radio.txt (all available services from `/etc/enigma2/lamedb`)
 ```
 $ vuplus_download_all_services ip_address_or_name_of_your_vuplus
 ```
@@ -48,10 +48,14 @@ root@uno4k:~# vuplus_download_all_services localhost
 $ vuplus_userbouquets_editable
 ```
 
-4. modify them by your needs (vim shortcuts: dd p)
+4. modify them by your needs (use Vim shortcuts: dd p)
 ```
 $ vim -p tv.txt *.tv
 $ vim -p radio.txt *.radio
+```
+Vim commmand to sort services alphabetically (^I is Ctrl-v + tab):
+```
+:1,$! sort -t'^I' -k 2
 ```
 
 - purge unused services (optionaly)
