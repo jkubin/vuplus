@@ -1,0 +1,67 @@
+#!/usr/bin/python
+# 2019/01/02 Josef Kubin
+
+import argparse
+import textwrap
+import codecs
+import urllib2
+import json
+import sys
+
+parser = argparse.ArgumentParser(
+    formatter_class=argparse.RawDescriptionHelpFormatter,
+    description=textwrap.dedent('''\
+            the script downloads all tv and radio services from OpenWebif interface
+            to two text files named tv.txt and radio.txt in order to convert internal
+            userbouquets.*.{tv,radio} files to hand editable form
+
+            examples:
+            $ vuplus_download_all_services localhost
+            $ vuplus_download_all_services vuplus_box_name
+            $ vuplus_download_all_services 192.168.?.?
+            '''))
+
+parser.add_argument('address', help='Vu+ ip address or name')
+args = parser.parse_args()
+ip_or_name = args.address
+
+def download_all_services(all_services, api_url):
+
+    url = 'http://' + ip_or_name + '/api/getservices?sRef=' + api_url
+
+    print(url)
+
+    try:
+        response = urllib2.urlopen(url)
+        content = response.read()
+    except urllib2.URLError as e:
+        if hasattr(e,'code'):
+            print(e.code)
+
+        if hasattr(e,'reason'):
+            print(e.reason)
+
+        sys.exit()
+
+    except urllib2.HTTPError as e:
+        if hasattr(e,'code'):
+            print(e.code)
+
+        if hasattr(e,'reason'):
+            print(e.reason)
+
+        sys.exit()
+
+    f = codecs.open(all_services, 'w', 'utf-8')
+
+    records = json.loads(content)
+
+    print('write ' + all_services)
+
+    for item in records['services']:
+        f.write(item['servicereference'] + "\t" + item['servicename'] + "\n")
+
+    f.close()
+
+download_all_services('tv.txt', '1:7:1:0:0:0:0:0:0:0:(type%20==%201)%20||%20(type%20==%2017)%20||%20(type%20==%20195)%20||%20(type%20==%2025)%20||%20(type%20==%2022)%20||%20(type%20==%2031)%20||%20(type%20==%20211)%20ORDER%20BY%20name')
+download_all_services('radio.txt', '1:7:2:0:0:0:0:0:0:0:(type%20==%202)%20ORDER%20BY%20name')

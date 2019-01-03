@@ -1,0 +1,19 @@
+#!/bin/bash
+# 2019/01/02 Josef Kubin
+#
+# converts the userbouquet files from vuplus box to human-editable format
+
+for i in userbouquet.*.{tv,radio}
+do
+	all_services_file=${i##*.}.txt
+
+	if [ -e $all_services_file ]
+	then
+		sed 's/$//;s/^#SERVICE //' $i > $$
+		awk -F'\t' -v OFS='\t' 'NR == FNR {a[$1] = $2; next}{print $0, a[$1]}' $all_services_file $$ > $i
+	else
+		echo "$i skipped (missing $all_services_file)"
+	fi
+done
+
+rm -f $$

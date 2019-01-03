@@ -1,0 +1,6 @@
+#!/bin/bash
+# 2019/01/02 Josef Kubin
+#
+# restore the userbouquet files to the original format for uploading back into vuplus
+
+sed -i 's/\t\+$//;/^1:/{s/\t.*$//;s/^/#SERVICE /}' userbouquet.*.{tv,radio}

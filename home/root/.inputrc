@@ -1,0 +1,34 @@
+# my favorite Bash shortcuts
+"\e\C-n": history-search-forward
+"\e\C-p": history-search-backward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+"\ew": unix-filename-rubout
+"\e\C-x": copy-region-as-kill
+"\ex": kill-region
+"\ek": kill-whole-line
+
+# copy snippets to kill buffer
+"\e\C-x": copy-region-as-kill
+"\ex": kill-region
+
+# skip over paths and quoted parameters
+"\e\C-b": shell-backward-word
+"\e\C-f": shell-forward-word
+"\eB": shell-backward-word
+"\eF": shell-forward-word
+
+# delete paths and quoted parameters (smarter delete)
+"\e\C-d": shell-kill-word
+"\eh": shell-backward-kill-word
+"\e\C-w": shell-backward-kill-word
+
+set colored-stats on
+set completion-ignore-case on
+set echo-control-characters off
+set mark-directories on
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set visible-stats on
+set completion-prefix-display-length 2
+set completion-query-items -1
