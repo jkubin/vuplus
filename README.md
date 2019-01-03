@@ -1,21 +1,21 @@
 # Vu+ scripts to edit bouquets
 If you want to edit bouquets, you have the following choices:
 - remote control (slow, boring, ugly)
-- OpenWebif interface
+- OpenWebif interface (mouse hell)
 - external GUI programs (dreamboxEDIT for example)
 - ***vuplus scripts***
-  - ***for power users***
+  - ***for power CLI users***
 
-## why to use vuplus scripts
-raw userbouquet files contains cryptic lines
+## The main idea of vuplus scripts
+Raw userbouquet files contains the following cryptic lines:
 ```
 ...
 #SERVICE 1:0:19:3396:C89:3:EB0000:0:0:0:
 #SERVICE 1:0:19:3392:C89:3:EB0000:0:0:0:
 #SERVICE 1:0:16:339C:C89:3:EB0000:0:0:0:
+...
 ```
-
-***vuplus_userbouquets_editable*** makes them Vim editable
+The script `vuplus_userbouquets_editable` decrypts them (thanks to ***YOUR*** tv.txt):
 ```
 ...
 1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
@@ -23,10 +23,9 @@ raw userbouquet files contains cryptic lines
 1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
 ...
 ```
-edit what you want and finaly change them with ***vuplus_userbouquets_restore*** to cryptic format
-
-## steps to use vuplus scripts
-1. copy bouquets to working location
+... edit whatever you want and finaly run `vuplus_userbouquets_restore` back to cryptic format
+## Steps to use vuplus scripts
+1. copy all bouquets to working location
 ```
 $ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
 ```
@@ -35,7 +34,7 @@ $ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
 root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 ```
 
-2. download JSON data to tv.txt and radio.txt (all available services)
+2. download JSON data to tv.txt and radio.txt (all available services from `/etc/enigma2/lamedb`)
 ```
 $ vuplus_download_all_services ip_address_or_name_of_your_vuplus
 ```
