@@ -1,18 +1,36 @@
-# Vu+ scripts and tips
-Here's a collection of scripts and tips for great satellite receivers with Linux (set-top box).
-
+# Vu+ scripts to edit bouquets
 If you want to edit bouquets, you have the following choices:
-- remote control (boring & ugly)
-- web interface (OpenWebif)
+- remote control (slow, boring, ugly)
+- OpenWebif interface
 - external GUI programs (dreamboxEDIT for example)
-- ***vuplus scripts*** for Linux users (and you know what are you doing)
+- ***vuplus scripts***
+  - ***for power users***
+
+## why to use vuplus scripts
+raw userbouquet files contains cryptic lines
+```
+...
+#SERVICE 1:0:19:3396:C89:3:EB0000:0:0:0:
+#SERVICE 1:0:19:3392:C89:3:EB0000:0:0:0:
+#SERVICE 1:0:16:339C:C89:3:EB0000:0:0:0:
+```
+
+***vuplus_userbouquets_editable*** makes them Vim editable
+```
+...
+1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
+1:0:19:3392:C89:3:EB0000:0:0:0:	Prima HD
+1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
+...
+```
+edit what you want and finaly change them with ***vuplus_userbouquets_restore*** to cryptic format
 
 ## steps to use vuplus scripts
 1. copy bouquets to working location
 ```
 $ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
 ```
-or
+   or
 ```
 root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 ```
@@ -21,7 +39,7 @@ root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 ```
 $ vuplus_download_all_services ip_address_or_name_of_your_vuplus
 ```
-or
+   or
 ```
 root@uno4k:~# vuplus_download_all_services localhost
 ```
@@ -47,7 +65,7 @@ $ vuplus_userbouquets_purge
 $ vuplus_userbouquets_restore
 ```
 
-6. copy them back
+6. upload them back
 ```
 $ scp *.{radio,tv} root@ip_address_or_name_of_your_vuplus:/etc/enigma2/
 ```
