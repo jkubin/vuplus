@@ -7,7 +7,7 @@ If you want to edit bouquets, you have the following choices:
   - ***for power CLI users***
 
 ## The main idea of vuplus scripts
-Raw userbouquet files contains the following cryptic lines:
+> raw userbouquet files contains the following cryptic lines:
 ```
 ...
 #SERVICE 1:0:19:3396:C89:3:EB0000:0:0:0:
@@ -15,8 +15,8 @@ Raw userbouquet files contains the following cryptic lines:
 #SERVICE 1:0:16:339C:C89:3:EB0000:0:0:0:
 ...
 ```
-> tv.txt and radio.txt contains all available pairs service-name from ***YOUR*** Vu+
-> The script `vuplus_userbouquets_editable` converts userbouquet-s to pairs service-name:
+> radio.txt and tv.txt contains all available pairs service-name from ***YOUR*** Vu+  
+> the script `vuplus_userbouquets_editable` converts raw userbouquet-s to pairs service-name:
 ```
 ...
 1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
@@ -24,7 +24,17 @@ Raw userbouquet files contains the following cryptic lines:
 1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
 ...
 ```
-> ... copy or reorder lines and finally run `vuplus_userbouquets_restore` understandable for your Vu+ ...
+> ***now you can easily***
+> copy desired lines from {radio,tv}.txt to your userbouquet files  
+> add/reorder/delete existing lines  
+> add/reorder/delete lines in bouquets.{radio,tv}  
+> run `vuplus_userbouquets_restore` to change userbouquet files to previous raw format
+## My Vu+ box
+```
+Brand & Model:	Vu+ Uno4K
+Version:        OpenWebif 1.2.6
+https://github.com/E2OpenPlugins/e2openplugin-OpenWebif
+```
 ## Steps to use vuplus scripts
 1. copy all bouquets to working location
 ```
@@ -35,7 +45,8 @@ $ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
 root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 ```
 
-2. download JSON data from Vu+ and create tv.txt and radio.txt (all available services from `/etc/enigma2/lamedb`)
+2. download JSON data from Vu+ to create {radio,tv}.txt (all available services from `/etc/enigma2/lamedb`)
+- refresh the `lamedb` file (Main Menu ---> Setup ---> Service Searching ---> Automatic Scan)
 ```
 $ vuplus_download_all_services ip_address_or_name_of_your_vuplus
 ```
@@ -59,7 +70,7 @@ Vim commmand to sort services alphabetically (the `^I` is Ctrl-v + tab):
 :1,$! sort -t'^I' -k 2
 ```
 
-- purge unused services (optionaly)
+- (optionaly) purge unused services
 ```
 $ vuplus_userbouquets_purge
 ```
