@@ -24,7 +24,7 @@ If you want to edit bouquets, you have the following choices:
 1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
 ...
 ```
-> ***now you can easily***
+> ***now you can easily***  
 > copy desired lines from {radio,tv}.txt to your userbouquet files  
 > add/reorder/delete existing lines  
 > add/reorder/delete lines in bouquets.{radio,tv}  
@@ -55,12 +55,12 @@ $ vuplus_download_all_services ip_address_or_name_of_your_vuplus
 root@uno4k:~# vuplus_download_all_services localhost
 ```
 
-3. convert them to pairs service-name
+3. convert userbouquet-s to pairs service-name
 ```
 $ vuplus_userbouquets_editable
 ```
 
-4. modify them by your needs (use Vim shortcuts: dd p)
+4. modify userbouquet-s by your needs (use Vim shortcuts: `dd` `p`)
 ```
 $ vim -p tv.txt *.tv
 $ vim -p radio.txt *.radio
