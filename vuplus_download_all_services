@@ -23,11 +23,10 @@ parser = argparse.ArgumentParser(
 
 parser.add_argument('address', help='Vu+ ip address or name')
 args = parser.parse_args()
-ip_or_name = args.address
 
 def download_all_services(all_services, api_url):
 
-    url = 'http://' + ip_or_name + '/api/getservices?sRef=' + api_url
+    url = 'http://' + args.address + '/api/getservices?sRef=' + api_url
 
     print(url)
 

@@ -16,7 +16,7 @@ Raw userbouquet files contains the following cryptic lines:
 ...
 ```
 > tv.txt and radio.txt contains all available pairs service-name from ***YOUR*** Vu+
-The script `vuplus_userbouquets_editable` converts userbouquet-s to pairs service-name:
+> The script `vuplus_userbouquets_editable` converts userbouquet-s to pairs service-name:
 ```
 ...
 1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
@@ -24,7 +24,7 @@ The script `vuplus_userbouquets_editable` converts userbouquet-s to pairs servic
 1:0:16:339C:C89:3:EB0000:0:0:0:	Prima KRIMI
 ...
 ```
-... copy or reorder lines and finally run `vuplus_userbouquets_restore` understandable for your Vu+ ...
+> ... copy or reorder lines and finally run `vuplus_userbouquets_restore` understandable for your Vu+ ...
 ## Steps to use vuplus scripts
 1. copy all bouquets to working location
 ```
@@ -74,10 +74,10 @@ $ vuplus_userbouquets_restore
 $ scp *.{radio,tv} root@ip_address_or_name_of_your_vuplus:/etc/enigma2/
 ```
 
-7. restart enigma
+7. restart enigma to reload new bouquets
 ```
 root@uno4k:~# killall -9 enigma2
 ```
-8. enjoy reordered services
+8. enjoy your bouquets (and give me some stars ;-)
 
 ### Contact (Base64): bTR1bml4QGdtYWlsLmNvbQ
