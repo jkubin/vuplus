@@ -3,4 +3,4 @@
 #
 # removes inactive services (without second column)
 
-sed -i '/^1:[^\t]\+\t$/d' userbouquet.*
+sed -i '/^1:[^\t]\+\t$/d' userbouquet.*.{tv,radio}
