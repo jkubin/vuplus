@@ -2,5 +2,13 @@
 # 2019/01/02 Josef Kubin
 #
 # restore the userbouquet files to the original format for uploading back into vuplus
+#
+# before:
+# 1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
+# 1:0:19:3392:C89:3:EB0000:0:0:0:	Prima HD
+#
+# after:
+##SERVICE 1:0:19:3396:C89:3:EB0000:0:0:0:
+##SERVICE 1:0:19:3392:C89:3:EB0000:0:0:0:
 
 sed -i 's/\t\+$//;/^1:/{s/\t.*$//;s/^/#SERVICE /}' userbouquet.*.{tv,radio}

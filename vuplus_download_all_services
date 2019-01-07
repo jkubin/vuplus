@@ -21,7 +21,7 @@ parser = argparse.ArgumentParser(
             $ vuplus_download_all_services 192.168.?.?
             '''))
 
-parser.add_argument('address', help='Vu+ ip address or name')
+parser.add_argument('address', help='Vu+ ip address or hostname')
 args = parser.parse_args()
 
 def download_all_services(all_services, api_url):

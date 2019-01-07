@@ -15,7 +15,7 @@ If you want to edit bouquets, you have the following choices:
 #SERVICE 1:0:16:339C:C89:3:EB0000:0:0:0:
 ...
 ```
-> radio.txt and tv.txt contains all available pairs service-name from ***YOUR*** Vu+  
+> ***radio.txt*** and ***tv.txt*** contains all available pairs service-name from ***YOUR*** Vu+  
 > the script `vuplus_userbouquets_editable` converts raw userbouquet-s to pairs service-name:
 ```
 ...
@@ -38,7 +38,7 @@ https://github.com/E2OpenPlugins/e2openplugin-OpenWebif
 ## Steps to use vuplus scripts
 1. copy all bouquets to working location
 ```
-$ scp root@ip_address_or_name_of_your_vuplus:/etc/enigma2/*.{radio,tv} .
+$ scp root@ip_address_or_hostname:/etc/enigma2/*.{radio,tv} .
 ```
    or
 ```
@@ -48,7 +48,7 @@ root@uno4k:~# cp /etc/enigma2/*.{radio,tv} .
 2. download JSON data from Vu+ to create {radio,tv}.txt (all available services from `/etc/enigma2/lamedb`)
 - refresh the `lamedb` file (Main Menu ---> Setup ---> Service Searching ---> Automatic Scan)
 ```
-$ vuplus_download_all_services ip_address_or_name_of_your_vuplus
+$ vuplus_download_all_services ip_address_or_hostname
 ```
    or
 ```
@@ -82,7 +82,7 @@ $ vuplus_userbouquets_restore
 
 6. upload them back
 ```
-$ scp *.{radio,tv} root@ip_address_or_name_of_your_vuplus:/etc/enigma2/
+$ scp *.{radio,tv} root@ip_address_or_hostname:/etc/enigma2/
 ```
 
 7. restart enigma to reload new bouquets

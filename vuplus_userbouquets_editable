@@ -2,6 +2,16 @@
 # 2019/01/02 Josef Kubin
 #
 # converts the userbouquet files from vuplus box to human-editable format
+#
+# before:
+##SERVICE 1:0:19:3396:C89:3:EB0000:0:0:0:
+##SERVICE 1:0:16:339C:C89:3:EB0000:0:0:0:
+##SERVICE 1:0:19:3392:C89:3:EB0000:0:0:0:
+#
+# after:
+# 1:0:19:3396:C89:3:EB0000:0:0:0:	Prima COOL HD
+# 1:0:16:339C:C89:3:EB0000:0:0:0:	
+# 1:0:19:3392:C89:3:EB0000:0:0:0:	Prima HD
 
 for i in userbouquet.*.{tv,radio}
 do
